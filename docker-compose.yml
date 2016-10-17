@@ -1,0 +1,9 @@
+version: '2'
+services:
+
+    publicweb-publicweb-test:
+        build:
+            context: .
+            dockerfile: Dockerfile     
+        image:  gavinjonespf/docker-publicweb-base:${BUILD_TAG}
+

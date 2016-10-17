@@ -1,4 +1,4 @@
-FROM gavinjonespf/apache-php
+FROM gavinjonespf/apache-php:latest
 ENV ALLOW_OVERRIDE true
 
 #Apache defaults for publicweb
