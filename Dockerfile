@@ -14,9 +14,9 @@ RUN a2enmod ssl
 RUN a2enmod suexec
 RUN a2enmod vhost_alias
 
-RUN apt-get update && apt-get install -yq git nano && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -yq git nano && rm -rf /var/lib/apt/lists/*
 RUN rm -fr /app
-ENV TERM xterm
+# ENV TERM xterm
 
 ARG         COMMIT_ID
 RUN         echo $COMMIT_ID >> commitid.txt
