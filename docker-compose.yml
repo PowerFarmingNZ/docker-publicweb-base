@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile     
-        image:  gavinjonespf/docker-publicweb-base:${BUILD_TAG}
+        image:  pfdockerregistry-on.azurecr.io/gavinjonespf/docker-publicweb-base:${BUILD_TAG}
         environment:
             - DOCKER_DC=$DOCKER_DC
             - DOCKER_BASEDOMAIN=$DOCKER_BASEDOMAIN
