@@ -6,4 +6,16 @@ services:
             context: .
             dockerfile: Dockerfile     
         image:  gavinjonespf/docker-publicweb-base:${BUILD_TAG}
+        environment:
+            - DOCKER_DC=$DOCKER_DC
+            - DOCKER_BASEDOMAIN=$DOCKER_BASEDOMAIN
+            - APPLICATION_ENV=dev
+            - SITE=publicweb-test.$DOCKER_DC.$DOCKER_BASEDOMAIN
+            - VIRTUAL_HOST=publicweb-test.$DOCKER_DC.$DOCKER_BASEDOMAIN
+            - APPLICATION_CNAME=publicweb-test.$DOCKER_DC.$DOCKER_BASEDOMAIN
+        labels:
+            - "traefik.backend=publicweb-dev-test"
+            - "traefik.frontend.rule=Host:publicweb-test.$DOCKER_DC.$DOCKER_BASEDOMAIN"
+        extra_hosts:
+            - "publicweb-test.$DOCKER_DC.$DOCKER_BASEDOMAIN:127.0.0.1"
 
