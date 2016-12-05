@@ -19,5 +19,5 @@ export APPLICATION_CNAME_REGEX=$appregex
 sync;sleep 2
 
 #Add default host entries
-/scripts/manage-etc-hosts.sh $APPLICATION_CNAME
-
+#/scripts/manage-etc-hosts.sh $APPLICATION_CNAME
+#Not working with docker, due to mount point
