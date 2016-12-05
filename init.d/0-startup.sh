@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Make sure we're not confused by old, incompletely-shutdown httpd
 # context after restarting the container.  httpd won't start correctly
@@ -17,3 +17,7 @@ appregex=$(echo "$APPLICATION_CNAME" | sed 's/\./\\./g')
 export APPLICATION_CNAME_REGEX=$appregex
 
 sync;sleep 2
+
+#Add default host entries
+/scripts/manage-etc-hosts.sh $APPLICATION_CNAME
+
