@@ -31,6 +31,11 @@ RUN         a2enmod vhost_alias
 
 RUN         rm -fr /app
 
+#Add default uploads size update
+RUN         mkdir -p /usr/local/etc/php/conf.d/
+COPY        files/upload.ini /etc/php5/mods-available/pfuploads.ini
+RUN         ln -s /etc/php5/mods-available/pfuploads.ini /etc/php5/apache2/conf.d/99-pfuploads.ini
+
 #Add scripts
 RUN         mkdir -p /scripts/init.d/
 COPY        init.d/ /scripts/init.d/
