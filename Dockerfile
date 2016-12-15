@@ -36,6 +36,10 @@ RUN         mkdir -p /usr/local/etc/php/conf.d/
 COPY        files/upload.ini /etc/php5/mods-available/pfuploads.ini
 RUN         ln -s /etc/php5/mods-available/pfuploads.ini /etc/php5/apache2/conf.d/99-pfuploads.ini
 
+#Add default session config
+COPY        files/session.ini /etc/php5/mods-available/pfsession.ini
+RUN         ln -s /etc/php5/mods-available/pfsession.ini /etc/php5/apache2/conf.d/99-pfsession.ini
+
 #Add scripts
 RUN         mkdir -p /scripts/init.d/
 COPY        init.d/ /scripts/init.d/
@@ -50,6 +54,9 @@ RUN         mkdir -p /app/site/redirector && chown -R www-data:www-data /app/sit
 #Add custom stuff?
 COPY        templateredirector.conf  /etc/apache2/sites-available/zzz-default.conf
 COPY        index.php  /app/site/redirector/
+
+#Cache and session
+RUN         mkdir -p /app/site/cache/ && mkdir -p /app/site/session/
 
 ARG         COMMIT_ID
 RUN         echo $COMMIT_ID >> commitid.txt
