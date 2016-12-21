@@ -56,7 +56,7 @@ COPY        templateredirector.conf  /etc/apache2/sites-available/zzz-default.co
 COPY        index.php  /app/site/redirector/
 
 #Cache and session
-RUN         mkdir -p /app/site/cache/ && mkdir -p /app/site/session/
+RUN         mkdir -p /app/site/cache/ && mkdir -p /app/site/session/ && chown www-data:www-data /app/site/cache  && chown www-data:www-data /app/site/session
 
 ARG         COMMIT_ID
 RUN         echo $COMMIT_ID >> commitid.txt
