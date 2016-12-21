@@ -47,7 +47,7 @@ RUN         chmod -R a+rx /scripts/init.d/*.sh
 COPY        scripts/ /scripts/
 RUN         chmod -R a+rx /scripts/*.sh 
 
-HEALTHCHECK CMD /scripts/healthcheck.sh
+HEALTHCHECK CMD /scripts/healthcheck.sh 
 
 #Redirector
 RUN         mkdir -p /app/site/redirector && chown -R www-data:www-data /app/site/redirector
