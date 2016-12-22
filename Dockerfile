@@ -55,6 +55,9 @@ RUN         mkdir -p /app/site/redirector && chown -R www-data:www-data /app/sit
 COPY        templateredirector.conf  /etc/apache2/sites-available/zzz-default.conf
 COPY        index.php  /app/site/redirector/
 
+#Upload Temp
+RUN         mkdir -p /app/site/uploadtmp/ && chown www-data:www-data /app/site/uploadtmp/
+
 #Cache and session
 RUN         mkdir -p /app/site/cache/ && mkdir -p /app/site/session/ && chown www-data:www-data /app/site/cache  && chown www-data:www-data /app/site/session
 
