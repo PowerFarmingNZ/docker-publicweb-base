@@ -58,6 +58,9 @@ COPY        index.php  /app/site/redirector/
 #Upload Temp
 RUN         mkdir -p /app/site/uploadtmp/ && chown www-data:www-data /app/site/uploadtmp/
 
+#Temp folder, todo-remove
+RUN         chown www-data:www-data /tmp/ 
+
 #Cache and session
 RUN         mkdir -p /app/site/cache/ && mkdir -p /app/site/session/ && chown www-data:www-data /app/site/cache  && chown www-data:www-data /app/site/session
 
