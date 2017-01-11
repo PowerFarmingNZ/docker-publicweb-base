@@ -52,7 +52,7 @@ HEALTHCHECK CMD /scripts/healthcheck.sh
 #Redirector
 RUN         mkdir -p /app/site/redirector && chown -R www-data:www-data /app/site/redirector
 #Add custom stuff?
-COPY        templateredirector.conf  /etc/apache2/sites-available/zzz-default.conf
+COPY        templateredirector.conf  /etc/apache2/sites-available/templateredirector-default.conf
 COPY        index.php  /app/site/redirector/
 
 #Upload Temp
