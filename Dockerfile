@@ -68,6 +68,9 @@ ARG         COMMIT_ID
 RUN         echo $COMMIT_ID >> commitid.txt
 EXPOSE      80
 
+#Add version txt
+RUN         mkdir -p /v/ && echo "IMAGE_NAME=${IMAGE_NAME}\nIMAGE_DESC=${IMAGE_DESC}\nIMAGE_URL=${IMAGE_URL}\nCOMMIT_URL=${GIT_URL}\nCOMMIT=${GIT_COMMIT}-${COMMIT_ID}\nBUILD=${BUILD_NUMBER}\nBRANCH=${GIT_BRANCH}\n" >> /v/$IMAGE_NAME.txt
+
 # Basic build-time metadata as defined at http://label-schema.org
 LABEL       org.label-schema.schema-version="1.0.0-rc.1" \
             org.label-schema.build-date="${BUILD_DATE}" \
