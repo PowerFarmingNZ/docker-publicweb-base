@@ -16,6 +16,9 @@ fi
 appregex=$(echo "$APPLICATION_CNAME" | sed 's/\./\\./g')
 export APPLICATION_CNAME_REGEX=$appregex
 
+#Ensure tmp writeable
+chmod a+w /tmp
+
 sync;sleep 2
 
 #Add default host entries
