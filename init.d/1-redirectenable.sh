@@ -1,7 +1,7 @@
 #!/bin/sh
-./0-env.sh
+/scripts/init.d/0-env.sh
 touch /scripts/.apacheenv
-source /scripts/.apacheenv
+. /scripts/.apacheenv
 
 /scripts/buildconf.sh /etc/apache2/sites-available/templateredirector-default.conf /etc/apache2/sites-available/zzz-default.conf
 

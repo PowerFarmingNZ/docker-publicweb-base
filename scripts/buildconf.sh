@@ -1,7 +1,7 @@
 #!/bin/sh
 #DESC: Builds or updates a file based on env vars presented
 touch /scripts/.apacheenv
-source /scripts/.apacheenv
+. /scripts/.apacheenv
 
 infile=$1
 outfile=$2

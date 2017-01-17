@@ -8,7 +8,7 @@ rm -rf /run/apache2/* /tmp/apache*
 #Ensure tmp writeable
 chmod a+w /tmp
 
-./0-env.sh
+/scripts/init.d/0-env.sh
 
 sync;sleep 2
 
