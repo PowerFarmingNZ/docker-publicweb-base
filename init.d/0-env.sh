@@ -33,7 +33,20 @@ if [ -z "$APPLICATION_CNAME_REGEX" ]; then
     fi
 fi
 
-#Moxie default
+if [ -z "$APPLICATION_REDIRECT" ]; then
+    export APPLICATION_REDIRECT=true
+
+    ex="export APPLICATION_REDIRECT=true"
+    touch /scripts/.apacheenv
+    if grep -Fxq "$ex" /scripts/.apacheenv
+    then
+        echo "APPLICATION_REDIRECT already in .apacheenv"
+    else
+        echo "$ex" >> /scripts/.apacheenv
+    fi
+fi
+
+#Moxie default TODO: Should be up the chain
 if [ -z "$MOXIE_FILESYSTEM_ROOTPATH" ]; then
     export MOXIE_FILESYSTEM_ROOTPATH=/app/site/public/uploaded/
 
