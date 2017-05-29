@@ -68,6 +68,10 @@ ARG         COMMIT_ID
 RUN         echo $COMMIT_ID >> commitid.txt
 EXPOSE      80
 
+#Template - Needs to be copied in on a site by site basis
+RUN         mkdir -p /app/site/docker-publicweb-base/
+COPY        files/template/* /app/site/docker-publicweb-base/
+
 #Add version txt
 RUN         mkdir -p /v/ && echo "IMAGE_NAME=${IMAGE_NAME}\nIMAGE_DESC=${IMAGE_DESC}\nIMAGE_URL=${IMAGE_URL}\nCOMMIT_URL=${GIT_URL}\nCOMMIT=${GIT_COMMIT}-${COMMIT_ID}\nBUILD=${BUILD_NUMBER}\nBRANCH=${GIT_BRANCH}\n" >> /v/$IMAGE_NAME.txt
 
